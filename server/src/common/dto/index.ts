@@ -17,10 +17,12 @@ export class DateParamsDTO {
  */
 export class PagingDto {
   @ApiProperty({ required: false })
+  @IsOptional()
   @IsNumberString()
   pageNum: number;
 
   @ApiProperty({ required: false })
+  @IsOptional()
   @IsNumberString()
   pageSize: number;
 
