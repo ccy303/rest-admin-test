@@ -1,52 +1,50 @@
-import { IsDateString, IsNumberString, IsObject, IsOptional, IsString } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { IsDateString, IsNumberString, IsObject, IsOptional, IsString } from "class-validator";
+import { ApiProperty } from "@nestjs/swagger";
 
 /**
  * 时间区间对象
  */
 export class DateParamsDTO {
-  @IsDateString()
-  beginTime: string;
+    @IsDateString()
+    beginTime: string;
 
-  @IsDateString()
-  endTime: string;
+    @IsDateString()
+    endTime: string;
 }
 
 /**
  * 分页DTO
  */
 export class PagingDto {
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsNumberString()
-  pageNum: number;
+    @ApiProperty({ required: false })
+    @IsOptional()
+    pageNum: number = 1;
 
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsNumberString()
-  pageSize: number;
+    @ApiProperty({ required: false })
+    @IsOptional()
+    pageSize: number = 10;
 
-  /**
-   * 时间区间
-   */
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsObject()
-  params?: DateParamsDTO;
+    /**
+     * 时间区间
+     */
+    @ApiProperty({ required: false })
+    @IsOptional()
+    @IsObject()
+    params?: DateParamsDTO;
 
-  /**
-   * 排序字段
-   */
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsString()
-  orderByColumn?: string;
+    /**
+     * 排序字段
+     */
+    @ApiProperty({ required: false })
+    @IsOptional()
+    @IsString()
+    orderByColumn?: string;
 
-  /**
-   * 排序规则
-   */
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsString()
-  isAsc?: 'ascending' | 'descending';
+    /**
+     * 排序规则
+     */
+    @ApiProperty({ required: false })
+    @IsOptional()
+    @IsString()
+    isAsc?: "ascending" | "descending";
 }

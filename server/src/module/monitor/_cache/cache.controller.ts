@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiBody, ApiConsumes, ApiQuery, ApiBearerAuth } from "@nestjs/swagger";
-import { CacheService } from "./cache.service";
+import { CacheServiceRep } from "./cache.service";
 
 @ApiTags("缓存管理")
 @Controller("monitor/cache")
-export class CacheController {
-    constructor(private readonly cacheService: CacheService) {}
+export class CacheControllerRep {
+    constructor(private readonly cacheService: CacheServiceRep) {}
     @ApiOperation({ summary: "缓存监控信息" })
     @Get()
     getInfo() {

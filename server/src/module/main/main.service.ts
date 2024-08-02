@@ -7,14 +7,14 @@ import { AxiosService } from "src/module/axios/axios.service";
 import { ListToTree } from "src/common/utils/index";
 import { RegisterDto, LoginDto, ClientInfoDto } from "./dto/index";
 import { MenuService } from "../system/menu/menu.service";
+
 @Injectable()
 export class MainService {
     constructor(
-        // private readonly userService: UserService,
-        // private readonly loginlogService: LoginlogService,
+        private readonly userService: UserService // private readonly menuService: MenuService
         // private readonly axiosService: AxiosService,
-        // private readonly menuService: MenuService
-    ) {}
+    ) // private readonly loginlogService: LoginlogService,
+    {}
 
     /**
      * 登陆
@@ -22,21 +22,20 @@ export class MainService {
      * @returns
      */
     async login(user: LoginDto, clientInfo: ClientInfoDto) {
-        // const loginLog = {
-        //     ...clientInfo,
-        //     userName: user.username,
-        //     status: "0",
-        //     msg: ""
-        // };
+        const loginLog = { ...clientInfo, userName: user.username, status: 0, msg: "" };
+        // todo
         // try {
         //     const loginLocation = await this.axiosService.getIpAddress(clientInfo.ipaddr);
         //     loginLog.loginLocation = loginLocation;
         // } catch (error) {}
-        // const loginRes = await this.userService.login(user, loginLog);
-        // loginLog.status = loginRes.code === SUCCESS_CODE ? "0" : "1";
+        const loginRes = await this.userService.login(user, loginLog);
+        
+        // todo 记录登录日志
+        // loginLog.status = loginRes.code === SUCCESS_CODE ? 0 : 1;
         // loginLog.msg = loginRes.msg;
         // this.loginlogService.create(loginLog);
-        // return loginRes;
+
+        return loginRes;
     }
     /**
      * 退出登陆

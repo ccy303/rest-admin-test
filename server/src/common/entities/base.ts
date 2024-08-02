@@ -38,12 +38,12 @@ export abstract class BaseEntity {
 
 export abstract class BaseEntityRep {
     @ApiProperty({ type: String, description: "状态" })
-    @Column({ type: "enum", name: "status", default: 0, enum: StatusEnum, comment: "状态" })
+    @Column({ type: "enum", name: "status", default: StatusEnum.NORMAL, enum: StatusEnum, comment: "状态" })
     public status: number;
 
     //0代表存在 1代表删除
     @ApiProperty({ type: String, description: "删除标志" })
-    @Column({ type: "enum", name: "del_flag", default: 0, enum: DelFlagEnum, comment: "删除标志" })
+    @Column({ type: "enum", name: "del_flag", default: DelFlagEnum.NORMAL, enum: DelFlagEnum, comment: "删除标志" })
     public delFlag: number;
 
     @ApiProperty({ type: String, description: "创建者" })

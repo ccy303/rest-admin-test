@@ -4,12 +4,12 @@
  */
 export enum CacheEnum {
     /**
-     * 登录用户 redis key
+     * 登录用户 cache key
      */
     LOGIN_TOKEN_KEY = "login_tokens:",
 
     /**
-     * 验证码 redis key
+     * 验证码 cache key
      */
     CAPTCHA_CODE_KEY = "captcha_codes:",
 
@@ -24,28 +24,28 @@ export enum CacheEnum {
     SYS_DICT_KEY = "sys_dict:",
 
     /**
-     * 防重提交 redis key
+     * 防重提交 cache key
      */
     REPEAT_SUBMIT_KEY = "repeat_submit:",
 
     /**
-     * 限流 redis key
+     * 限流 cache key
      */
     RATE_LIMIT_KEY = "rate_limit:",
 
     /**
-     * 登录账户密码错误次数 redis key
+     * 登录账户密码错误次数 cache key
      */
     PWD_ERR_CNT_KEY = "pwd_err_cnt:",
 
     /**
-     * 登录账户密码错误次数 redis key
+     * 登录账户密码错误次数 cache key
      */
     GZ_TYPE = "gz_type:",
     /**
-     * 微信code存储
+     * 微信code存储 cache key
      */
-    MA_CODE = "ma_code:"
+    WC_CODE = "wc_code:"
 }
 
 /**
@@ -87,7 +87,7 @@ export enum DelFlagEnum {
 }
 
 /**
- * 数据状态:0正常,1停用
+ * 数据状态:1正常,0停用
  */
 export enum StatusEnum {
     NORMAL = 1,
@@ -101,9 +101,9 @@ export enum SexEnum {
     /**
      * 男
      */
-    MAN = "0",
+    MAN = 0,
     /**
      * 女
      */
-    WOMAN = "1"
+    WOMAN = 1
 }
